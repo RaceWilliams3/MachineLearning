@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
 
     public void updateInput(float leftRight)
     {
-        rb.AddForce((Vector3.right * leftRight) * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
-        rb.AddForce(0, 0, acceleration, ForceMode.Acceleration);
+        rb.AddForce((Vector3.right * leftRight) * moveSpeed * Time.deltaTime, ForceMode.VelocityChange); 
     }
 
+    void FixedUpdate()
+    {
+        rb.AddForce(0, 0, acceleration, ForceMode.Acceleration);
+    }
 }
